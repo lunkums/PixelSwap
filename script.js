@@ -1,37 +1,40 @@
+const palettePreview = document.getElementById("area");
+const paletteInput = document.getElementById("palette-input");
+paletteInput.addEventListener("change", readSingleFile, false);
+
+let paletteFileContents = "";
+let palette = [];
+
 function readSingleFile(e) {
   //Retrieve the first (and only!) File from the FileList object
   let file = e.target.files[0];
 
   if (file) {
-    let r = new FileReader();
-    r.onload = (event) => {
-      let contents = event.target.result;
-      alert(
-        "Got the file.\n" +
-          "name: " +
-          file.name +
-          "\n" +
-          "type: " +
-          getFileType(file.name) +
-          "\n" +
-          "size: " +
-          file.size +
-          " bytes\n" +
-          "starts with: " +
-          contents.substr(0, contents.indexOf("\n"))
-      );
-      document.getElementById("area").innerText = contents;
+    let reader = new FileReader();
+    reader.onload = (event) => {
+      if (isValidGpl(file)) {
+        paletteFileContents = event.target.result;
+        updatePreviewText();
+        palette = parseGplFile(paletteFileContents);
+      } else {
+        e.target.value = null;
+        reset();
+        alert("Not a valid GPL file!");
+      }
     };
-    r.readAsText(file);
+    reader.readAsText(file);
   } else {
+    reset();
     alert("Failed to load file");
   }
 }
 
-function getFileType(filename) {
-  return filename.split(".").pop();
+function updatePreviewText() {
+  palettePreview.innerText = paletteFileContents;
 }
 
-document
-  .getElementById("palette-input")
-  .addEventListener("change", readSingleFile, false);
+function reset() {
+  paletteFileContents = "";
+  palette = [];
+  updatePreviewText();
+}
