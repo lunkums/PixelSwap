@@ -1,0 +1,61 @@
+body,
+h1,
+html,
+p {
+  margin: 0;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+html {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  width: 66%;
+  align-items: center;
+}
+
+#content {
+  display: flex;
+  flex-direction: row;
+  border: solid black 0.25rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  flex: auto;
+}
+
+#body-left,
+#body-right {
+  padding: 1rem;
+  border: solid gray 0.125rem;
+}
+
+#body-left {
+  width: 25%;
+}
+
+#body-right {
+  width: 75%;
+}
+
+h1 {
+  padding: 1rem;
+  width: 100%;
+  text-align: start;
+}
+
+input {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+footer {
+  padding: 0.5rem;
+}

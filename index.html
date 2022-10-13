@@ -4,24 +4,36 @@
 <head>
     <meta charset="utf-8" />
     <title>Pixel Dye</title>
-    <script src="image.js" defer></script>
-    <script src="palette.js" defer></script>
-    <script src="color.js"></script>
-    <script src="fileHelper.js"></script>
+    <script src="./scripts/image.js" defer></script>
+    <script src="./scripts/palette.js" defer></script>
+    <script src="./scripts/color.js"></script>
+    <script src="./scripts/fileHelper.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <h1>Pixel Dye</h1>
-    <form>
-        <label for="palette">Palette (.GPL file):</label><br>
-        <input type="file" id="palette-input" /><br>
-        <label for="image">Image (.PNG file):</label><br>
-        <input type="file" id="image-input" /><br>
-    </form>
-    <p id="area"></p>
-    <img id="image-old">
-    <canvas id="image-canvas" hidden></canvas>
-    <img id="image-preview">
+    <div id="content">
+        <div id="body-left">
+            <form>
+                <label for="palette">Palette (.GPL file):</label><br>
+                <input type="file" id="palette-input" /><br>
+            </form>
+            <p id="area"></p>
+        </div>
+        <div id="body-right">
+            <form>
+                <label for="image">Image (.PNG file):</label><br>
+                <input type="file" id="image-input" /><br>
+            </form>
+            <img id="image-old">
+            <canvas id="image-canvas" hidden></canvas>
+            <img id="image-preview">
+        </div>
+    </div>
+    <footer>
+        Made by <a href="https://www.github.com/lunkums">Lunkums</a> © 2022
+    </footer>
 </body>
 
 </html>
