@@ -4,7 +4,7 @@ const max = 255;
 const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 
 class Color {
-  constructor(red, green, blue, name) {
+  constructor(red, green, blue, name = "Unnamed") {
     this.red = clamp(red, min, max);
     this.green = clamp(green, min, max);
     this.blue = clamp(blue, min, max);
@@ -12,7 +12,7 @@ class Color {
   }
 
   print() {
-    console.log(`${name} = (R:${this.red}, G:${this.green}, B:${this.blue})`);
+    console.log(`RGB (${this.red} ${this.green} ${this.blue}) ${this.name}`);
   }
 
   difference(color) {
@@ -21,5 +21,9 @@ class Color {
         (this.green - color.green) ** 2 +
         (this.blue - color.blue) ** 2
     );
+  }
+
+  get colorArray() {
+    return [this.red, this.green, this.blue];
   }
 }

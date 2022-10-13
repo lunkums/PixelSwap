@@ -38,3 +38,16 @@ function resetPalette() {
   palette = [];
   updatePreviewText();
 }
+
+function getMostSimilarColor(color) {
+  let minDifference = Number.MAX_VALUE;
+  let mostSimilarColor = new Color(0, 0, 0);
+  for (let i = 0; i < palette.length; i++) {
+    let difference = color.difference(palette[i]);
+    if (difference < minDifference) {
+      mostSimilarColor = palette[i];
+      minDifference = difference;
+    }
+  }
+  return mostSimilarColor;
+}
