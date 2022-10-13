@@ -12,7 +12,7 @@ function readSingleFile(evt) {
           f.name +
           "\n" +
           "type: " +
-          f.type +
+          getFileType(f.name) +
           "\n" +
           "size: " +
           f.size +
@@ -26,6 +26,10 @@ function readSingleFile(evt) {
   } else {
     alert("Failed to load file");
   }
+}
+
+function getFileType(filename) {
+  return filename.split(".").pop();
 }
 
 document
