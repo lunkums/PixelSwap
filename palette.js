@@ -18,13 +18,13 @@ function readSingleFile(e) {
         palette = parseGplFile(paletteFileContents);
       } else {
         e.target.value = null;
-        reset();
+        resetPalette();
         alert("Not a valid GPL file!");
       }
     };
     reader.readAsText(file);
   } else {
-    reset();
+    resetPalette();
     alert("Failed to load file");
   }
 }
@@ -33,7 +33,7 @@ function updatePreviewText() {
   palettePreview.innerText = paletteFileContents;
 }
 
-function reset() {
+function resetPalette() {
   paletteFileContents = "";
   palette = [];
   updatePreviewText();

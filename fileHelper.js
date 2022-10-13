@@ -2,6 +2,10 @@ function getFileType(filename) {
   return filename.split(".").pop();
 }
 
+function isValidPng(file) {
+  return getFileType(file.name).toLocaleLowerCase() === "png";
+}
+
 function isValidGpl(file) {
   return getFileType(file.name).toLocaleLowerCase() === "gpl";
 }
