@@ -1,28 +1,28 @@
-function readSingleFile(evt) {
+function readSingleFile(e) {
   //Retrieve the first (and only!) File from the FileList object
-  let f = evt.target.files[0];
+  let file = e.target.files[0];
 
-  if (f) {
+  if (file) {
     let r = new FileReader();
-    r.onload = function (e) {
-      let contents = e.target.result;
+    r.onload = (event) => {
+      let contents = event.target.result;
       alert(
         "Got the file.\n" +
           "name: " +
-          f.name +
+          file.name +
           "\n" +
           "type: " +
-          getFileType(f.name) +
+          getFileType(file.name) +
           "\n" +
           "size: " +
-          f.size +
+          file.size +
           " bytes\n" +
           "starts with: " +
           contents.substr(0, contents.indexOf("\n"))
       );
-      document.getElementById("area").value = contents;
+      document.getElementById("area").innerText = contents;
     };
-    r.readAsText(f);
+    r.readAsText(file);
   } else {
     alert("Failed to load file");
   }
