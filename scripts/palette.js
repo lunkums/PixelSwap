@@ -1,6 +1,6 @@
 const palettePreview = document.getElementById("area");
 const paletteInput = document.getElementById("palette-input");
-paletteInput.addEventListener("change", readSingleFile, false);
+paletteInput.addEventListener("change", readSingleFile);
 
 let paletteFileContents = `GIMP Palette
 #

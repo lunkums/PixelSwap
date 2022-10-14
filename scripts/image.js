@@ -6,8 +6,8 @@ const imageInput = document.getElementById("image-input");
 const downloadButtons = document.getElementsByClassName("download-button");
 const imageDownload = document.getElementById("image-download");
 
-imageInput.addEventListener("change", readSingleFile, false);
-palettePreview.addEventListener("change", updatePreviewImages, false);
+imageInput.addEventListener("change", readSingleFile);
+palettePreview.addEventListener("change", updatePreviewImages);
 
 // Update the image preview when the palette changes
 observer = new MutationObserver(updatePreviewImages);
