@@ -1,5 +1,5 @@
 * {
-  font-family: Consolas, monaco, monospace;
+  font-family: "Roboto Mono", monospace;
   color: #535657;
 }
 
@@ -65,16 +65,33 @@ body {
   align-self: center;
 }
 
+label,
+input {
+  font-weight: 500;
+}
+
+button {
+  font-weight: 900;
+}
+
 header {
   display: flex;
   align-items: center;
   width: 100%;
 }
 
+hr {
+  border: 0;
+  clear: both;
+  display: block;
+  width: 100%;
+  background-color: #dee7e7;
+  height: 0.125rem;
+}
+
 h1,
 h2 {
   color: #f4faff;
-  font-family: "Roboto Mono", monospace;
   padding: 1rem 0;
   width: 50%;
   overflow: hidden;
@@ -95,6 +112,7 @@ h2 {
 
 p {
   flex: auto;
+  font-size: small;
 }
 
 canvas {
