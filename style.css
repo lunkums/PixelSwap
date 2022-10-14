@@ -83,11 +83,13 @@ body {
 
 #body-right-top {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .download-button {
   margin-left: auto;
   align-self: center;
+  margin-bottom: 0.5rem;
 }
 
 label,
@@ -156,6 +158,7 @@ span {
 }
 
 canvas {
+  box-sizing: border-box;
   background-color: white;
   border: 0.125rem solid #dee7e7;
   margin-bottom: 0.5rem;

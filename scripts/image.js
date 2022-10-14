@@ -28,14 +28,10 @@ function readSingleFile(e) {
         updatePreviewImages();
       } else {
         e.target.value = null;
-        resetImage();
         alert("Not a valid PNG file!");
       }
     };
     reader.readAsDataURL(file);
-  } else {
-    resetImage();
-    alert("Failed to load file");
   }
 }
 
@@ -52,11 +48,6 @@ function updatePreviewImages() {
   Array.from(downloadButtons).forEach((button) => {
     button.hidden = afterImagePreview.hidden;
   });
-}
-
-function resetImage() {
-  image = "";
-  updatePreviewImages();
 }
 
 function updateAfterImagePreview(image) {
