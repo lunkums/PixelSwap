@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Pixel Dye</title>
+    <title>Pixel Swap</title>
     <script src="./scripts/palette.js" defer></script>
     <script src="./scripts/image.js" defer></script>
     <script src="./scripts/color.js"></script>
@@ -16,7 +16,7 @@
 
 <body>
     <header>
-        <h1>Pixel Dye</h1>
+        <h1>Pixel Swap</h1>
         <h2>Quickly swap pixel art color palettes</h2>
     </header>
     <div id="content">
@@ -41,7 +41,9 @@
                 <img id="before-image" hidden> <!-- Always hidden -->
                 <canvas id="before-image-preview" hidden></canvas><br>
                 <img id="after-image" hidden> <!-- Always hidden -->
-                <canvas id="after-image-preview" hidden></canvas><br>
+                <a id="image-download" download="image">
+                    <canvas id="after-image-preview" hidden></canvas>
+                </a><br>
                 <a class="download-button" href="foobar" download="image" hidden>
                     <button>Download Result</button>
                 </a>

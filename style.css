@@ -75,20 +75,18 @@ h1,
 h2 {
   color: #f4faff;
   font-family: "Roboto Mono", monospace;
-  padding: 1rem;
+  padding: 1rem 0;
   width: 50%;
   overflow: hidden;
   justify-content: center;
 }
 
 h1 {
-  padding-right: 0;
   text-align: start;
 }
 
 h2 {
   font-size: 0.95rem;
-  padding-left: 0;
   text-align: end;
   display: inline-block;
   vertical-align: center;
@@ -102,6 +100,7 @@ p {
 canvas {
   background-color: white;
   border: 0.125rem solid #dee7e7;
+  margin-bottom: 0.5rem;
   width: 100%;
   image-rendering: -moz-crisp-edges;
   image-rendering: -webkit-crisp-edges;

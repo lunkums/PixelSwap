@@ -4,6 +4,7 @@ const afterImage = document.getElementById("after-image");
 const afterImagePreview = document.getElementById("after-image-preview");
 const imageInput = document.getElementById("image-input");
 const downloadButtons = document.getElementsByClassName("download-button");
+const imageDownload = document.getElementById("image-download");
 
 imageInput.addEventListener("change", readSingleFile, false);
 palettePreview.addEventListener("change", updatePreviewImages, false);
@@ -85,9 +86,11 @@ function updateAfterImagePreview(image) {
   context.putImageData(imageData, 0, 0);
 
   afterImage.src = afterImagePreview.toDataURL("image/png");
+  afterImagePreview.href = afterImage.src;
   Array.from(downloadButtons).forEach((button) => {
     button.href = afterImage.src;
   });
+  imageDownload.href = afterImage.src;
 }
 
 function updateBeforeImagePreview(image) {
