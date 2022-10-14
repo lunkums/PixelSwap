@@ -90,10 +90,14 @@ p {
   flex: auto;
 }
 
-img {
+canvas {
   background-color: white;
   border: 0.125rem solid #dee7e7;
-  flex: auto;
+  width: 100%;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }
 
 input {
