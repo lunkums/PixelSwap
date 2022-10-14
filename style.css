@@ -96,9 +96,10 @@ input {
 }
 
 button {
-  background-color: #dee7e7;
-  border: 0.125rem solid #4f646f;
-  border-radius: 0.125rem;
+  color: #535657;
+  background-color: white;
+  border: 0.125rem solid #dee7e7;
+  border-radius: 0.25rem;
   font-weight: 900;
 }
 
