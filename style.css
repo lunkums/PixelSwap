@@ -37,6 +37,12 @@ body {
   align-items: center;
 }
 
+@media only screen and (max-width: 992px) {
+  body {
+    width: 94%;
+  }
+}
+
 #content {
   background-color: #f4faff;
   display: flex;
@@ -153,4 +159,7 @@ footer {
 
 a {
   color: #dee7e7;
+}
+
+@media only screen and (min-width: 600px) {
 }
