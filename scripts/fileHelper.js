@@ -11,7 +11,7 @@ function isValidGpl(file) {
 }
 
 function parseGplFile(file) {
-  let lines = file.split("\n");
+  let lines = file.split(/\r?\n/);
   let palette = [];
 
   if (lines[0] !== "GIMP Palette") {

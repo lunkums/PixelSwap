@@ -26,4 +26,12 @@ class Color {
   get colorArray() {
     return [this.red, this.green, this.blue];
   }
+
+  get cssColor() {
+    return `rgb(${this.red}, ${this.green}, ${this.blue})`;
+  }
+
+  get isLight() {
+    return this.red * 0.299 + this.green * 0.587 + this.blue * 0.114 > 154;
+  }
 }

@@ -3,6 +3,14 @@
   color: #535657;
 }
 
+.light-font {
+  color: #f4faff;
+}
+
+.dark-font {
+  color: #4f646f;
+}
+
 body,
 h1,
 h2,
@@ -71,6 +79,9 @@ input {
 }
 
 button {
+  background-color: #dee7e7;
+  border: 0.125rem solid #4f646f;
+  border-radius: 0.125rem;
   font-weight: 900;
 }
 
@@ -113,6 +124,10 @@ h2 {
 p {
   flex: auto;
   font-size: small;
+}
+
+span {
+  display: block;
 }
 
 canvas {

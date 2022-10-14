@@ -14,6 +14,7 @@ observer = new MutationObserver(updatePreviewImages);
 observer.observe(palettePreview, { childList: true });
 
 let image = "";
+updatePreviewImages();
 
 function readSingleFile(e) {
   //Retrieve the first (and only!) File from the FileList object

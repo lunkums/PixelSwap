@@ -25,7 +25,7 @@
         <div id="body-left">
             <form>
                 <label for="palette">Palette (.GPL file):</label><br>
-                <input type="file" id="palette-input" /><br>
+                <input type="file" id="palette-input" accept=".gpl" /><br>
             </form>
             <hr>
             <p id="area"></p>
@@ -34,14 +34,14 @@
             <div id="body-right-top">
                 <form>
                     <label for="image">Image (.PNG file):</label><br>
-                    <input type="file" id="image-input" /><br>
+                    <input type="file" id="image-input" accept=".png" /><br>
                 </form>
                 <a class="download-button" href="foobar" download="image" hidden>
                     <button>Download Result</button>
                 </a>
             </div>
             <div id="images">
-                <img id="before-image" hidden> <!-- Always hidden -->
+                <img id="before-image" src="./examples/boss-preview.png" hidden> <!-- Always hidden -->
                 <canvas id="before-image-preview" hidden></canvas><br>
                 <img id="after-image" hidden> <!-- Always hidden -->
                 <a id="image-download" download="image">
