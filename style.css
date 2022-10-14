@@ -175,6 +175,7 @@ input {
 }
 
 footer {
+  text-align: center;
   color: #dee7e7;
   padding: 0.5rem;
 }
