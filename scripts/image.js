@@ -1,14 +1,14 @@
 const beforeImage = document.getElementById("before-image");
-const beforeImageCanvas = document.getElementById("before-image-preview");
+const beforeImagePreview = document.getElementById("before-image-preview");
 const afterImage = document.getElementById("after-image");
-const afterImageCanvas = document.getElementById("after-image-preview");
+const afterImagePreview = document.getElementById("after-image-preview");
 const imageInput = document.getElementById("image-input");
 
 imageInput.addEventListener("change", readSingleFile, false);
-palettePreview.addEventListener("change", updatePreviewImage, false);
+palettePreview.addEventListener("change", updatePreviewImages, false);
 
 // Update the image preview when the palette changes
-observer = new MutationObserver(updatePreviewImage);
+observer = new MutationObserver(updatePreviewImages);
 observer.observe(palettePreview, { childList: true });
 
 let image = "";
@@ -22,7 +22,7 @@ function readSingleFile(e) {
     reader.onload = (event) => {
       if (isValidPng(file)) {
         image = event.target.result;
-        updatePreviewImage();
+        updatePreviewImages();
       } else {
         e.target.value = null;
         resetImage();
@@ -36,13 +36,11 @@ function readSingleFile(e) {
   }
 }
 
-function updatePreviewImage() {
+function updatePreviewImages() {
   // Must wait until the image loads or you won't be able to load the image data
   beforeImage.onload = () => {
-    if (image && palette.length !== 0) {
-      dyeImage(beforeImage);
-    }
-    updateBeforeImageCanvas(beforeImage);
+    updateBeforeImagePreview(beforeImage);
+    updateAfterImagePreview(beforeImage);
   };
   beforeImage.src = image;
 
@@ -52,22 +50,22 @@ function updatePreviewImage() {
     afterImage.src = "";
   }
 
-  afterImageCanvas.hidden = !image || palette.length === 0;
-  beforeImageCanvas.hidden = !image;
+  beforeImagePreview.hidden = !image;
+  afterImagePreview.hidden = !image || palette.length === 0;
 }
 
 function resetImage() {
   image = "";
-  updatePreviewImage();
+  updatePreviewImages();
 }
 
-function dyeImage(image) {
+function updateAfterImagePreview(image) {
   // Must grab the canvas as is needed so the image can load first
   const width = image.width || image.naturalWidth;
   const height = image.height || image.naturalHeight;
-  afterImageCanvas.width = width;
-  afterImageCanvas.height = height;
-  let context = afterImageCanvas.getContext("2d", {
+  afterImagePreview.width = width;
+  afterImagePreview.height = height;
+  let context = afterImagePreview.getContext("2d", {
     willReadFrequently: true,
   });
 
@@ -88,16 +86,16 @@ function dyeImage(image) {
 
   context.putImageData(imageData, 0, 0);
 
-  afterImage.src = afterImageCanvas.toDataURL("image/png");
+  afterImage.src = afterImagePreview.toDataURL("image/png");
 }
 
-function updateBeforeImageCanvas(image) {
+function updateBeforeImagePreview(image) {
   // Must grab the canvas as is needed so the image can load first
   const width = image.width || image.naturalWidth;
   const height = image.height || image.naturalHeight;
-  beforeImageCanvas.width = width;
-  beforeImageCanvas.height = height;
-  let context = beforeImageCanvas.getContext("2d", {
+  beforeImagePreview.width = width;
+  beforeImagePreview.height = height;
+  let context = beforeImagePreview.getContext("2d", {
     willReadFrequently: true,
   });
 
@@ -107,5 +105,5 @@ function updateBeforeImageCanvas(image) {
 
   context.putImageData(imageData, 0, 0);
 
-  beforeImage.src = beforeImageCanvas.toDataURL("image/png");
+  beforeImage.src = beforeImagePreview.toDataURL("image/png");
 }
