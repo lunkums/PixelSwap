@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "Munro";
+  src: url(./fonts/munro.ttf);
+}
+
+@font-face {
+  font-family: "Munro Small";
+  src: url(./fonts/munro-small.ttf);
+}
+
 * {
   font-family: "Roboto Mono", monospace;
   color: #535657;
@@ -44,6 +54,7 @@ body {
 }
 
 #content {
+  margin-top: 0.1rem;
   background-color: #f4faff;
   display: flex;
   flex-direction: row;
@@ -97,6 +108,11 @@ header {
   width: 100%;
 }
 
+header img {
+  width: 3.7rem;
+  margin-right: 1rem;
+}
+
 hr {
   border: 0;
   clear: both;
@@ -116,11 +132,13 @@ h2 {
 }
 
 h1 {
+  font-family: "Munro", "Roboto Mono", monospace;
   text-align: start;
 }
 
 h2 {
-  font-size: 0.95rem;
+  font-family: "Munro Small", monospace;
+  font-size: x-large;
   text-align: end;
   display: inline-block;
   vertical-align: center;
