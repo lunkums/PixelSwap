@@ -4,15 +4,21 @@
 <head>
     <meta charset="utf-8" />
     <title>Pixel Dye</title>
-    <script src="./scripts/image.js" defer></script>
     <script src="./scripts/palette.js" defer></script>
+    <script src="./scripts/image.js" defer></script>
     <script src="./scripts/color.js"></script>
     <script src="./scripts/fileHelper.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Pixel Dye</h1>
+    <header>
+        <h1>Pixel Dye</h1>
+        <h2>Quickly swap pixel art color palettes</h2>
+    </header>
     <div id="content">
         <div id="body-left">
             <form>
@@ -26,9 +32,11 @@
                 <label for="image">Image (.PNG file):</label><br>
                 <input type="file" id="image-input" /><br>
             </form>
-            <img id="image-old">
-            <canvas id="image-canvas" hidden></canvas>
-            <img id="image-preview">
+            <div id="images">
+                <img id="image-old" hidden>
+                <canvas id="image-canvas" hidden></canvas><br>
+                <img id="image-preview" hidden>
+            </div>
         </div>
     </div>
     <footer>

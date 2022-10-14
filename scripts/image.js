@@ -3,6 +3,11 @@ const imageCanvas = document.getElementById("image-canvas");
 const imagePreview = document.getElementById("image-preview");
 const imageInput = document.getElementById("image-input");
 imageInput.addEventListener("change", readSingleFile, false);
+palettePreview.addEventListener("change", updatePreviewImage, false);
+
+// Update the image preview when the palette changes
+observer = new MutationObserver(updatePreviewImage);
+observer.observe(palettePreview, { childList: true });
 
 let image = "";
 
@@ -42,6 +47,9 @@ function updatePreviewImage() {
     }
   };
   imageOld.src = image;
+
+  imagePreview.hidden = !image || palette.length === 0;
+  imageOld.hidden = !image;
 }
 
 function resetImage() {

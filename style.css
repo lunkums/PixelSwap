@@ -1,5 +1,11 @@
+* {
+  font-family: Consolas, monaco, monospace;
+  color: #535657;
+}
+
 body,
 h1,
+h2,
 html,
 p {
   margin: 0;
@@ -11,6 +17,7 @@ html {
 }
 
 html {
+  background-color: #4f646f;
   display: flex;
   justify-content: center;
 }
@@ -23,18 +30,22 @@ body {
 }
 
 #content {
+  background-color: #f4faff;
   display: flex;
   flex-direction: row;
-  border: solid black 0.25rem;
-  border-radius: 0.5rem;
+  border: solid #b7adcf 0.2rem;
+  border-radius: 0.33rem;
   width: 100%;
   flex: auto;
 }
 
 #body-left,
 #body-right {
+  display: flex;
+  flex-direction: column;
+  overflow-x: scroll;
   padding: 1rem;
-  border: solid gray 0.125rem;
+  border: solid #dee7e7 0.175rem;
 }
 
 #body-left {
@@ -45,10 +56,44 @@ body {
   width: 75%;
 }
 
-h1 {
-  padding: 1rem;
+header {
+  display: flex;
+  align-items: center;
   width: 100%;
+}
+
+h1,
+h2 {
+  color: #f4faff;
+  font-family: "Roboto Mono", monospace;
+  padding: 1rem;
+  width: 50%;
+  overflow: hidden;
+  justify-content: center;
+}
+
+h1 {
+  padding-right: 0;
   text-align: start;
+}
+
+h2 {
+  font-size: 0.95rem;
+  padding-left: 0;
+  text-align: end;
+  display: inline-block;
+  vertical-align: center;
+  line-height: normal;
+}
+
+p {
+  flex: auto;
+}
+
+img {
+  background-color: white;
+  border: 0.125rem solid #dee7e7;
+  flex: auto;
 }
 
 input {
@@ -57,5 +102,10 @@ input {
 }
 
 footer {
+  color: #dee7e7;
   padding: 0.5rem;
+}
+
+a {
+  color: #dee7e7;
 }
