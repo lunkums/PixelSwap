@@ -1,7 +1,7 @@
-const beforeImage = document.getElementById("image-old");
-const beforeImageCanvas = document.getElementById("image-old-canvas");
-const afterImage = document.getElementById("image-preview");
-const afterImageCanvas = document.getElementById("image-preview-canvas");
+const beforeImage = document.getElementById("before-image");
+const beforeImageCanvas = document.getElementById("before-image-preview");
+const afterImage = document.getElementById("after-image");
+const afterImageCanvas = document.getElementById("after-image-preview");
 const imageInput = document.getElementById("image-input");
 
 imageInput.addEventListener("change", readSingleFile, false);
