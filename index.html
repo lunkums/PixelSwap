@@ -28,15 +28,23 @@
             <p id="area"></p>
         </div>
         <div id="body-right">
-            <form>
-                <label for="image">Image (.PNG file):</label><br>
-                <input type="file" id="image-input" /><br>
-            </form>
+            <div id="body-right-top">
+                <form>
+                    <label for="image">Image (.PNG file):</label><br>
+                    <input type="file" id="image-input" /><br>
+                </form>
+                <a class="download-button" href="foobar" download="image" hidden>
+                    <button>Download Result</button>
+                </a>
+            </div>
             <div id="images">
                 <img id="before-image" hidden> <!-- Always hidden -->
                 <canvas id="before-image-preview" hidden></canvas><br>
                 <img id="after-image" hidden> <!-- Always hidden -->
                 <canvas id="after-image-preview" hidden></canvas><br>
+                <a class="download-button" href="foobar" download="image" hidden>
+                    <button>Download Result</button>
+                </a>
             </div>
         </div>
     </div>

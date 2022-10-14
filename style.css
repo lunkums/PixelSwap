@@ -56,6 +56,15 @@ body {
   width: 75%;
 }
 
+#body-right-top {
+  display: flex;
+}
+
+.download-button {
+  margin-left: auto;
+  align-self: center;
+}
+
 header {
   display: flex;
   align-items: center;

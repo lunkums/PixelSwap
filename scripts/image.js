@@ -3,6 +3,7 @@ const beforeImagePreview = document.getElementById("before-image-preview");
 const afterImage = document.getElementById("after-image");
 const afterImagePreview = document.getElementById("after-image-preview");
 const imageInput = document.getElementById("image-input");
+const downloadButtons = document.getElementsByClassName("download-button");
 
 imageInput.addEventListener("change", readSingleFile, false);
 palettePreview.addEventListener("change", updatePreviewImages, false);
@@ -44,14 +45,11 @@ function updatePreviewImages() {
   };
   beforeImage.src = image;
 
-  // Manually clear the preview because the image won't technically "load" if
-  // it's just being cleared, thus onload events won't be called
-  if (!image) {
-    afterImage.src = "";
-  }
-
   beforeImagePreview.hidden = !image;
   afterImagePreview.hidden = !image || palette.length === 0;
+  Array.from(downloadButtons).forEach((button) => {
+    button.hidden = afterImagePreview.hidden;
+  });
 }
 
 function resetImage() {
@@ -87,6 +85,9 @@ function updateAfterImagePreview(image) {
   context.putImageData(imageData, 0, 0);
 
   afterImage.src = afterImagePreview.toDataURL("image/png");
+  Array.from(downloadButtons).forEach((button) => {
+    button.href = afterImage.src;
+  });
 }
 
 function updateBeforeImagePreview(image) {
