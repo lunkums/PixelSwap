@@ -1,7 +1,9 @@
 const beforeImage = document.getElementById("before-image");
 const beforeImagePreview = document.getElementById("before-image-preview");
+const beforeDiv = document.getElementById("before");
 const afterImage = document.getElementById("after-image");
 const afterImagePreview = document.getElementById("after-image-preview");
+const afterDiv = document.getElementById("after");
 const imageInput = document.getElementById("image-input");
 const downloadButtons = document.getElementsByClassName("download-button");
 const imageDownload = document.getElementById("image-download");
@@ -14,7 +16,7 @@ observer = new MutationObserver(updatePreviewImages);
 observer.observe(palettePreview, { childList: true });
 
 let image = "";
-updatePreviewImages();
+initialize();
 
 function readSingleFile(e) {
   //Retrieve the first (and only!) File from the FileList object
@@ -35,6 +37,12 @@ function readSingleFile(e) {
   }
 }
 
+function initialize() {
+  beforeImage.crossOrigin = "Anonymous";
+  image = beforeImage.src;
+  updatePreviewImages();
+}
+
 function updatePreviewImages() {
   // Must wait until the image loads or you won't be able to load the image data
   beforeImage.onload = () => {
@@ -43,15 +51,14 @@ function updatePreviewImages() {
   };
   beforeImage.src = image;
 
-  beforeImagePreview.hidden = !image;
-  afterImagePreview.hidden = !image || palette.length === 0;
+  beforeDiv.hidden = !image;
+  afterDiv.hidden = !image || palette.length === 0;
   Array.from(downloadButtons).forEach((button) => {
     button.hidden = afterImagePreview.hidden;
   });
 }
 
 function updateAfterImagePreview(image) {
-  // Must grab the canvas as is needed so the image can load first
   const width = image.width || image.naturalWidth;
   const height = image.height || image.naturalHeight;
   afterImagePreview.width = width;
@@ -86,7 +93,6 @@ function updateAfterImagePreview(image) {
 }
 
 function updateBeforeImagePreview(image) {
-  // Must grab the canvas as is needed so the image can load first
   const width = image.width || image.naturalWidth;
   const height = image.height || image.naturalHeight;
   beforeImagePreview.width = width;
@@ -100,6 +106,4 @@ function updateBeforeImagePreview(image) {
   let imageData = context.getImageData(0, 0, width, height);
 
   context.putImageData(imageData, 0, 0);
-
-  beforeImage.src = beforeImagePreview.toDataURL("image/png");
 }

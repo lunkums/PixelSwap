@@ -24,6 +24,7 @@
 body,
 h1,
 h2,
+h3,
 html,
 p {
   margin: 0;
@@ -98,6 +99,7 @@ input {
 }
 
 button {
+  font-size: medium;
   color: #535657;
   background-color: white;
   border: 0.125rem solid #dee7e7;
