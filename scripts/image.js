@@ -10,13 +10,14 @@ const imageDownload = document.getElementById("image-download");
 
 imageInput.addEventListener("change", readSingleFile);
 palettePreview.addEventListener("change", updatePreviewImages);
+matchingMethodSelector.addEventListener("change", updatePreviewImages);
 
 // Update the image preview when the palette changes
 observer = new MutationObserver(updatePreviewImages);
 observer.observe(palettePreview, { childList: true });
 
 let image = "";
-initialize();
+initializePreviewImages();
 
 function readSingleFile(e) {
   //Retrieve the first (and only!) File from the FileList object
@@ -37,7 +38,7 @@ function readSingleFile(e) {
   }
 }
 
-function initialize() {
+function initializePreviewImages() {
   beforeImage.crossOrigin = "Anonymous";
   image = beforeImage.src;
   updatePreviewImages();
@@ -54,7 +55,7 @@ function updatePreviewImages() {
   beforeDiv.hidden = !image;
   afterDiv.hidden = !image || palette.length === 0;
   Array.from(downloadButtons).forEach((button) => {
-    button.hidden = afterImagePreview.hidden;
+    button.hidden = afterDiv.hidden;
   });
 }
 
