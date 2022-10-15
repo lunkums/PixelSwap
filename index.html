@@ -5,9 +5,9 @@
     <meta charset="utf-8" />
     <title>Pixel Swap</title>
     <link rel="icon" href="./favicon.ico">
+    <script src="./scripts/color.js" defer></script>
     <script src="./scripts/palette.js" defer></script>
     <script src="./scripts/image.js" defer></script>
-    <script src="./scripts/color.js"></script>
     <script src="./scripts/fileHelper.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,6 +25,13 @@
     </header>
     <div id="content">
         <div id="body-left">
+            <label for="matching-method">Color-Matching Method</label>
+            <select name="matching-method" id="matching-method">
+                <option value="EuclideanDistance">Euclidean Distance (Fast, Inaccurate)</option>
+                <option value="Weighted">Weighted RGB (Average)</option>
+                <option value="CIELAB">CIELAB (Slow, Accurate)</option>
+            </select>
+            <hr>
             <form>
                 <label for="palette">Palette (.GPL file):</label><br>
                 <input type="file" id="palette-input" accept=".gpl" /><br>
@@ -45,7 +52,7 @@
             <div id="images">
                 <div id="before" hidden>
                     <h3>Before</h3>
-                    <img id="before-image" src="./media/boss-preview.png" hidden> <!-- Always hidden -->
+                    <img id="before-image" src="./media/artifact_ss.png" hidden> <!-- Always hidden -->
                     <canvas id="before-image-preview"></canvas><br>
                 </div>
                 <div id="after" hidden>
@@ -64,8 +71,8 @@
     <footer>
         Made by <a href="https://www.github.com/lunkums">Lunkums</a> © 2022, Palette by <a
             href="https://twitter.com/ENDESGA">ENDESGA Studios</a>, Default Sprite by <a
-            href="https://opengameart.org/users/balmer">Agustín Balmer</a>, Fonts by Ten
-            by Twenty
+            href="https://opengameart.org/users/hansolo">Gökhan</a>, Fonts by Ten
+        by Twenty
     </footer>
 </body>
 

@@ -93,18 +93,26 @@ body {
   margin-bottom: 0.5rem;
 }
 
-label,
-input {
+label {
   font-weight: 500;
+}
+
+input,
+select {
+  font-weight: 400;
 }
 
 button {
   font-size: medium;
+  font-weight: 900;
+}
+
+button,
+select {
   color: #535657;
   background-color: white;
   border: 0.125rem solid #dee7e7;
   border-radius: 0.25rem;
-  font-weight: 900;
 }
 
 header {
@@ -171,7 +179,8 @@ canvas {
   image-rendering: crisp-edges;
 }
 
-input {
+input,
+select {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
