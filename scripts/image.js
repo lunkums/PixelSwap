@@ -17,7 +17,10 @@ observer = new MutationObserver(updatePreviewImages);
 observer.observe(palettePreview, { childList: true });
 
 let image = "";
-initializePreviewImages();
+
+// Do not initialize until the WebAssembly module has been loaded or _malloc
+// will not be defined
+Module.onRuntimeInitialized = () => initializePreviewImages();
 
 function readSingleFile(e) {
   //Retrieve the first (and only!) File from the FileList object
@@ -71,19 +74,32 @@ function updateAfterImagePreview(image) {
   context.drawImage(image, 0, 0);
 
   let imageData = context.getImageData(0, 0, width, height),
-    pix = imageData.data;
+    pixels = imageData.data;
 
-  // Loop through all of the pixels and modify the components
-  for (let i = 0, n = pix.length; i < n; i += 4) {
-    let pixelColor = new Color(pix[i], pix[i + 1], pix[i + 2]);
-    let newColor = getMostSimilarColor(pixelColor).colorArray;
-    pix[i] = newColor[0]; // Red component
-    pix[i + 1] = newColor[1]; // Blue component
-    pix[i + 2] = newColor[2]; // Green component
-    //pix[i+3] is the transparency.
-  }
+  /* BEGIN WEBASSEMBLY CODE */
 
-  context.putImageData(imageData, 0, 0);
+  let pixelBuffer = Module._malloc(
+    pixels.length * Uint8Array.BYTES_PER_ELEMENT
+  );
+  Module.HEAPU8.set(pixels, pixelBuffer);
+  Module.ccall(
+    "SwapColors",
+    null,
+    ["string", "array", "number", "number", "number"],
+    [ColorMatchingMethod, palette, palette.length, pixelBuffer, pixels.length]
+  );
+
+  let convertedImage = new Uint8ClampedArray(
+    Module.HEAPU8.buffer,
+    pixelBuffer,
+    pixels.length
+  );
+
+  Module._free(pixelBuffer);
+
+  /* END WEBASSEMBLY CODE */
+
+  context.putImageData(new ImageData(convertedImage, width, height), 0, 0);
 
   afterImage.src = afterImagePreview.toDataURL("image/png");
   afterImagePreview.href = afterImage.src;

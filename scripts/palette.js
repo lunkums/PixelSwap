@@ -79,22 +79,20 @@ function updatePreviewText() {
     palettePreview.innerText += lines[i] + "\n";
   }
   // Parse palette colors separately since they need background color
-  for (let j = 0; j < palette.length; i++) {
-    let color = palette[j++];
-    let fontClass = color.isLight ? "dark-font" : "light-font";
-    palettePreview.innerHTML += `<span class="${fontClass}" style="background-color: ${color.cssColor};">${lines[i]}</span>`;
+  for (let j = 0; j < palette.length; i++, j += 3) {
+    let r = palette[j];
+    let g = palette[j + 1];
+    let b = palette[j + 2];
+    let fontClass = isLight(r, g, b) ? "dark-font" : "light-font";
+    let backgroundColor = cssColor(r, g, b);
+    palettePreview.innerHTML += `<span class="${fontClass}" style="background-color: ${backgroundColor};">${lines[i]}</span>`;
   }
 }
 
-function getMostSimilarColor(color) {
-  let minDifference = Number.MAX_VALUE;
-  let mostSimilarColor = new Color(0, 0, 0);
-  for (let i = 0; i < palette.length; i++) {
-    let difference = color.difference(palette[i]);
-    if (difference < minDifference) {
-      mostSimilarColor = palette[i];
-      minDifference = difference;
-    }
-  }
-  return mostSimilarColor;
+function cssColor(red, green, blue) {
+  return `rgb(${red}, ${green}, ${blue})`;
+}
+
+function isLight(red, green, blue) {
+  return red * 0.299 + green * 0.587 + blue * 0.114 > 154;
 }

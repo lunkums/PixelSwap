@@ -21,12 +21,15 @@ function parseGplFile(file) {
 
   for (let i = 1; i < lines.length; i++) {
     let line = lines[i];
+
     // Ignore comments and empty lines
     if (line.length === 0 || line[0] === "#") continue;
     let rgbValues = line.trim().split(/\s+/);
-    palette.push(
-      new Color(rgbValues[0], rgbValues[1], rgbValues[2], rgbValues[3])
-    );
+
+    palette.push(rgbValues[0]);
+    palette.push(rgbValues[1]);
+    palette.push(rgbValues[2]);
   }
-  return palette;
+
+  return new Uint8ClampedArray(palette);
 }

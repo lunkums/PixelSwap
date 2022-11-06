@@ -5,10 +5,11 @@
     <meta charset="utf-8" />
     <title>Pixel Swap</title>
     <link rel="icon" href="./favicon.ico">
+    <script src="./scripts/pixel-swap.js" defer></script>
     <script src="./scripts/color.js" defer></script>
     <script src="./scripts/palette.js" defer></script>
     <script src="./scripts/image.js" defer></script>
-    <script src="./scripts/fileHelper.js"></script>
+    <script src="./scripts/file-helper.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +28,7 @@
         <div id="body-left">
             <label for="matching-method">Color-Matching Method</label>
             <select name="matching-method" id="matching-method">
-                <option value="EuclideanDistance">Euclidean Distance (Fast, Inaccurate)</option>
+                <option value="Euclidean">Euclidean Distance (Fast, Inaccurate)</option>
                 <option value="Weighted">Weighted RGB (Average)</option>
                 <option value="CIELAB">CIELAB (Slow, Accurate)</option>
             </select>
