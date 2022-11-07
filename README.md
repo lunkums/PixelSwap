@@ -41,7 +41,7 @@ Pixel Swap converts an image's colors by comparing each pixel to every color in 
 
 2. Weighted RGB
 
-- Identical to Euclidean Distance, except the individual difference in color is weighted differently for red, green and blue.
+- Identical to Euclidean Distance, except the individual difference in color is weighted differently for red, green, and blue.
 - I used 0.3 for red, 0.59 for green, and 0.11 for blue [[1](#ref1)].
 
 3. CIELAB
