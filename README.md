@@ -1,6 +1,6 @@
 # Pixel Swap
 
-Select an image. Select a color palette. Convert colors like magic. Try it here: [pixelswap.art](pixelswap.art).
+Select an image. Select a color palette. Convert colors like magic. Try it here: [pixelswap.art](https://pixelswap.art).
 
 <p align="center">
   <img src="./media/cover.png" />
@@ -57,4 +57,4 @@ Pixel Swap was originally written in JavaScript, then translated into C++ and co
 1. <a name="ref1"></a>Baeldung. "How to Compute the Similarity of Colours," https://www.baeldung.com/cs/compute-similarity-of-colours.
 2. <a name="ref2"></a>EasyRGB. "Color math and programming code examples," http://www.easyrgb.com/en/math.php.
 
-This application is hosted at [pixelswap.art](pixelswap.art) for free via [Netlify](https://www.netlify.com/).
+This application is hosted at [pixelswap.art](https://pixelswap.art) for free via [Netlify](https://www.netlify.com/).
