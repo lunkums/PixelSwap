@@ -64,7 +64,7 @@ emcc src/Main.cpp src/Color.cpp -o build/pixel-swap.js -O3 -sALLOW_MEMORY_GROWTH
 ```
 
 - At first, I was using `-sLINKABLE=1` and `-sEXPORT_ALL=1` to resolve undefined symbol errors, but this resulted in a bloated output file and Module object.
-- `-sALLOW_MEMORY_GROWTH=1` was necessary to store larger images (exceeding a few megabytes) on the stack.
+- `-sALLOW_MEMORY_GROWTH=1` was necessary to store larger images (exceeding a few megabytes) on the heap.
 - I didn't include "cwrap" in `EXPORTED_RUNTIME_METHODS` because I didn't use it, but in other examples, you will see them include both.
 - The .js on the end of `-o build/pixel-swap.js` tells emscripten to build only the .wasm and .js glue file. You can also build a .html file, but I didn't because I wasn't going to use it.
 - `-O3` is the highest level of optimization you can specify for the compiler and I would recommend including this in your production code otherwise you aren't fully taking advantage of the power of WebAssembly.
